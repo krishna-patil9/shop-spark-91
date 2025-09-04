@@ -1,8 +1,11 @@
-import { Search, ShoppingCart, User, Menu } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useAuth } from "@/contexts/AuthContext";
+import { Link } from "react-router-dom";
 
 const Header = () => {
+  const { user, signOut } = useAuth();
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
@@ -12,10 +15,10 @@ const Header = () => {
           <div className="flex items-center space-x-2">
             <div className="bg-gradient-primary p-2 rounded-lg">
               <div className="w-8 h-8 bg-white rounded flex items-center justify-center text-primary font-bold text-lg">
-                E
+                S
               </div>
             </div>
-            <span className="text-xl font-bold text-primary hidden sm:block">EcommercePro</span>
+            <span className="text-xl font-bold text-primary hidden sm:block">ShopSpark</span>
           </div>
 
           {/* Search Bar */}
@@ -37,13 +40,31 @@ const Header = () => {
 
           {/* Action buttons */}
           <div className="flex items-center space-x-2">
-            <Button variant="ghost" size="sm" className="hidden sm:flex">
-              <User className="h-4 w-4 mr-2" />
-              Login
-            </Button>
-            <Button variant="outline" size="sm" className="hidden sm:flex">
-              Register
-            </Button>
+            {user ? (
+              <div className="flex items-center gap-2">
+                <span className="text-sm text-muted-foreground hidden sm:inline">
+                  Welcome back!
+                </span>
+                <Button variant="ghost" size="sm" onClick={signOut}>
+                  <LogOut className="h-4 w-4 mr-2" />
+                  <span className="hidden sm:inline">Sign Out</span>
+                </Button>
+              </div>
+            ) : (
+              <>
+                <Link to="/auth">
+                  <Button variant="ghost" size="sm" className="hidden sm:flex">
+                    <User className="h-4 w-4 mr-2" />
+                    Login
+                  </Button>
+                </Link>
+                <Link to="/auth">
+                  <Button variant="outline" size="sm" className="hidden sm:flex">
+                    Register
+                  </Button>
+                </Link>
+              </>
+            )}
             <Button variant="ghost" size="sm" className="relative">
               <ShoppingCart className="h-5 w-5" />
               <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">

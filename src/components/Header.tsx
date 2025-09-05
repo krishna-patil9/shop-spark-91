@@ -3,9 +3,26 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
+import { useSearch } from "@/hooks/useSearch";
+import SearchResults from "./SearchResults";
+import Cart from "./Cart";
+import { useRef, useEffect } from "react";
 
 const Header = () => {
   const { user, signOut } = useAuth();
+  const { searchQuery, setSearchQuery, searchResults, isSearching } = useSearch();
+  const searchRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (searchRef.current && !searchRef.current.contains(event.target as Node)) {
+        setSearchQuery('');
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [setSearchQuery]);
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
@@ -22,12 +39,14 @@ const Header = () => {
           </div>
 
           {/* Search Bar */}
-          <div className="flex-1 max-w-2xl mx-4 hidden md:block">
+          <div className="flex-1 max-w-2xl mx-4 hidden md:block" ref={searchRef}>
             <div className="relative">
               <Input
                 type="text"
                 placeholder="Search for products, brands and more..."
                 className="pl-4 pr-12 py-2 rounded-lg border-border focus:ring-2 focus:ring-primary/20"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
               <Button 
                 size="sm" 
@@ -35,6 +54,11 @@ const Header = () => {
               >
                 <Search className="h-4 w-4" />
               </Button>
+              <SearchResults 
+                query={searchQuery} 
+                results={searchResults} 
+                isSearching={isSearching} 
+              />
             </div>
           </div>
 
@@ -65,12 +89,7 @@ const Header = () => {
                 </Link>
               </>
             )}
-            <Button variant="ghost" size="sm" className="relative">
-              <ShoppingCart className="h-5 w-5" />
-              <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground text-xs rounded-full w-5 h-5 flex items-center justify-center font-semibold">
-                0
-              </span>
-            </Button>
+            <Cart />
             <Button variant="ghost" size="sm" className="md:hidden">
               <Menu className="h-5 w-5" />
             </Button>
@@ -78,16 +97,23 @@ const Header = () => {
         </div>
 
         {/* Mobile search */}
-        <div className="pb-3 md:hidden">
+        <div className="pb-3 md:hidden" ref={searchRef}>
           <div className="relative">
             <Input
               type="text"
               placeholder="Search products..."
               className="pl-4 pr-12 py-2 rounded-lg"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
             <Button size="sm" className="absolute right-1 top-1 bg-gradient-primary">
               <Search className="h-4 w-4" />
             </Button>
+            <SearchResults 
+              query={searchQuery} 
+              results={searchResults} 
+              isSearching={isSearching} 
+            />
           </div>
         </div>
 

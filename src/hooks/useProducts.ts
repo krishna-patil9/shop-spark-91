@@ -87,6 +87,34 @@ export function useProducts() {
     });
   };
 
+  const updateProductStock = (productId: number, quantityPurchased: number) => {
+    setProducts(prevProducts => 
+      prevProducts.map(product => {
+        if (product.id === productId) {
+          const newStock = Math.max(0, product.stock_quantity - quantityPurchased);
+          const newPrice = calculateDynamicPrice(product.base_price, newStock);
+          
+          return {
+            ...product,
+            stock_quantity: newStock,
+            current_price: newPrice,
+            stock_status: newStock === 0 ? 'out_of_stock' : newStock < 10 ? 'low_stock' : 'in_stock'
+          };
+        }
+        return product;
+      })
+    );
+  };
+
+  const calculateDynamicPrice = (basePrice: number, stockQuantity: number): number => {
+    if (stockQuantity < 10) {
+      // Increase price by 20-50% when stock is low
+      const increasePercentage = Math.max(0.2, (10 - stockQuantity) * 0.05);
+      return Math.round(basePrice * (1 + increasePercentage));
+    }
+    return basePrice;
+  };
+
   return {
     products,
     loading,
@@ -95,6 +123,7 @@ export function useProducts() {
     getProductsByCategory,
     getSimilarProducts,
     searchProducts,
+    updateProductStock,
     refetch: fetchProducts
   };
 }

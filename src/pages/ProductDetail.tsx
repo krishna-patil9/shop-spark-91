@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { useCart } from '@/contexts/CartContext';
 import { useProducts } from '@/hooks/useProducts';
 import ProductCard from '@/components/ProductCard';
+import CheckoutModal from '@/components/CheckoutModal';
 import { useToast } from '@/hooks/use-toast';
 
 const ProductDetail = () => {
@@ -14,8 +15,9 @@ const ProductDetail = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
   const { addToCart } = useCart();
-  const { getProductById, getSimilarProducts, loading } = useProducts();
+  const { getProductById, getSimilarProducts, loading, updateProductStock } = useProducts();
   const [quantity, setQuantity] = useState(1);
+  const [showCheckout, setShowCheckout] = useState(false);
   
   const product = getProductById(Number(id));
   const similarProducts = product ? getSimilarProducts(product.id, product.category_id) : [];
@@ -63,8 +65,17 @@ const ProductDetail = () => {
   };
 
   const handleBuyNow = () => {
-    handleAddToCart();
-    navigate('/checkout');
+    setShowCheckout(true);
+  };
+
+  const handlePurchaseComplete = () => {
+    // Update stock and trigger price recalculation
+    updateProductStock(product.id, quantity);
+    
+    toast({
+      title: "Purchase Successful! 🎉",
+      description: `You have successfully purchased ${quantity} ${product.name}(s)`,
+    });
   };
 
   const getStockStatusColor = (status: string) => {
@@ -246,6 +257,15 @@ const ProductDetail = () => {
           </div>
         </section>
       )}
+
+      {/* Checkout Modal */}
+      <CheckoutModal
+        isOpen={showCheckout}
+        onClose={() => setShowCheckout(false)}
+        product={product}
+        quantity={quantity}
+        onPurchaseComplete={handlePurchaseComplete}
+      />
     </div>
   );
 };

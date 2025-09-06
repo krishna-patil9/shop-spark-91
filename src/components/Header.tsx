@@ -3,14 +3,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
 import { Link } from "react-router-dom";
-import { useSearch } from "@/hooks/useSearch";
+import { useProducts } from '@/hooks/useProducts';
 import SearchResults from "./SearchResults";
 import Cart from "./Cart";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const Header = () => {
   const { user, signOut } = useAuth();
-  const { searchQuery, setSearchQuery, searchResults, isSearching } = useSearch();
+  const [searchQuery, setSearchQuery] = useState('');
+  const { searchProducts } = useProducts();
+  const searchResults = searchProducts(searchQuery);
   const searchRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -54,11 +56,12 @@ const Header = () => {
               >
                 <Search className="h-4 w-4" />
               </Button>
-              <SearchResults 
-                query={searchQuery} 
-                results={searchResults} 
-                isSearching={isSearching} 
-              />
+          <SearchResults
+            query={searchQuery}
+            results={searchResults}
+            isSearching={false}
+            onResultClick={() => setSearchQuery('')}
+          />
             </div>
           </div>
 
@@ -112,7 +115,8 @@ const Header = () => {
             <SearchResults 
               query={searchQuery} 
               results={searchResults} 
-              isSearching={isSearching} 
+              isSearching={false}
+              onResultClick={() => setSearchQuery('')}
             />
           </div>
         </div>

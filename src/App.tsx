@@ -8,6 +8,7 @@ import { CartProvider } from "@/contexts/CartContext";
 import Header from "@/components/Header";
 import BottomNavigation from "@/components/BottomNavigation";
 import Index from "./pages/Index";
+import ProductDetail from "./pages/ProductDetail";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -26,6 +27,7 @@ const App = () => (
               <main className="pb-16 md:pb-0">
                 <Routes>
                   <Route path="/" element={<Index />} />
+                  <Route path="/product/:id" element={<ProductDetail />} />
                   <Route path="/auth" element={<Auth />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

@@ -1,11 +1,33 @@
 import HeroCarousel from "@/components/HeroCarousel";
 import CategorySection from "@/components/CategorySection";
-import ProductCard from "@/components/ProductCard";
-import { sampleProducts, trendingProducts, dealProducts } from "@/data/products";
-import { Button } from "@/components/ui/button";
-import { ArrowRight, TrendingUp, Zap } from "lucide-react";
+import { useProducts } from '@/hooks/useProducts';
+import ProductCard from '@/components/ProductCard';
+import { Button } from '@/components/ui/button';
+import { ArrowRight, TrendingUp, Zap } from 'lucide-react';
 
 const Index = () => {
+  const { products, loading } = useProducts();
+  
+  const trendingProducts = products.slice(0, 4);
+  const dealProducts = products.filter(p => p.originalPrice && p.originalPrice > (p.current_price || p.price));
+  
+  if (loading) {
+    return (
+      <div className="min-h-screen">
+        <div className="container mx-auto px-4 py-8">
+          <div className="animate-pulse space-y-8">
+            <div className="h-64 bg-secondary rounded-lg"></div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="h-80 bg-secondary rounded-lg"></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen">
       {/* Hero Carousel */}
@@ -54,7 +76,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {dealProducts.map((product) => (
+            {dealProducts.slice(0, 4).map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>
@@ -72,7 +94,7 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {sampleProducts.map((product) => (
+            {products.map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
           </div>

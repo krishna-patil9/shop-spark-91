@@ -6,10 +6,9 @@ const CategorySection = () => {
   const navigate = useNavigate();
   
   const categories = [
-    { name: "Mobiles", icon: Smartphone, color: "text-blue-500" },
     { name: "Electronics", icon: Laptop, color: "text-purple-500" },
     { name: "Fashion", icon: Shirt, color: "text-pink-500" },
-    { name: "Home", icon: Home, color: "text-green-500" },
+    { name: "Home & Kitchen", icon: Home, color: "text-green-500" },
     { name: "Books", icon: Book, color: "text-orange-500" },
     { name: "Sports", icon: Gamepad2, color: "text-red-500" },
     { name: "Beauty", icon: Gift, color: "text-yellow-500" },

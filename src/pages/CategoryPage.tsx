@@ -9,12 +9,16 @@ const CategoryPage = () => {
   const navigate = useNavigate();
   const { products, loading } = useProducts();
 
-  // Filter products by category
+  // Filter products by category - handle URL-encoded category names
   const categoryProducts = products.filter(product => {
     const productCategory = typeof product.category === 'string' 
       ? product.category 
       : product.category?.name || '';
-    return productCategory.toLowerCase() === category?.toLowerCase();
+    
+    // Handle URL encoding for category names with spaces/special chars
+    const decodedCategory = decodeURIComponent(category || '').replace(/\+/g, ' ');
+    
+    return productCategory.toLowerCase() === decodedCategory.toLowerCase();
   });
 
   if (loading) {
@@ -47,7 +51,9 @@ const CategoryPage = () => {
           Back
         </Button>
         <div>
-          <h1 className="text-3xl font-bold capitalize">{category}</h1>
+          <h1 className="text-3xl font-bold capitalize">
+            {decodeURIComponent(category || '').replace(/\+/g, ' ')}
+          </h1>
           <p className="text-muted-foreground">
             {categoryProducts.length} products found
           </p>
@@ -65,7 +71,7 @@ const CategoryPage = () => {
         <div className="text-center py-16">
           <h2 className="text-2xl font-semibold mb-4">No products found</h2>
           <p className="text-muted-foreground mb-8">
-            We couldn't find any products in the {category} category.
+            We couldn't find any products in the {decodeURIComponent(category || '').replace(/\+/g, ' ')} category.
           </p>
           <Button onClick={() => navigate("/")}>
             Continue Shopping

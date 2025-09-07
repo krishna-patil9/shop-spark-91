@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useProducts } from '@/hooks/useProducts';
 import SearchResults from "./SearchResults";
 import Cart from "./Cart";
+import UserLocationMap from "./UserLocationMap";
 import { useRef, useEffect, useState } from "react";
 
 const Header = () => {
@@ -119,6 +120,11 @@ const Header = () => {
               onResultClick={() => setSearchQuery('')}
             />
           </div>
+        </div>
+
+        {/* User Location Map */}
+        <div className="py-4">
+          <UserLocationMap />
         </div>
 
         {/* Categories Navigation */}

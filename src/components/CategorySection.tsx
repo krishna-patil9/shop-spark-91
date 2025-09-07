@@ -1,7 +1,10 @@
 import { Smartphone, Laptop, Shirt, Home, Book, Gamepad2, Car, Gift } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 const CategorySection = () => {
+  const navigate = useNavigate();
+  
   const categories = [
     { name: "Mobiles", icon: Smartphone, color: "text-blue-500" },
     { name: "Electronics", icon: Laptop, color: "text-purple-500" },
@@ -9,9 +12,12 @@ const CategorySection = () => {
     { name: "Home", icon: Home, color: "text-green-500" },
     { name: "Books", icon: Book, color: "text-orange-500" },
     { name: "Sports", icon: Gamepad2, color: "text-red-500" },
-    { name: "Automotive", icon: Car, color: "text-gray-500" },
-    { name: "Gifts", icon: Gift, color: "text-yellow-500" },
+    { name: "Beauty", icon: Gift, color: "text-yellow-500" },
   ];
+
+  const handleCategoryClick = (categoryName: string) => {
+    navigate(`/category/${categoryName.toLowerCase()}`);
+  };
 
   return (
     <section className="py-8">
@@ -25,6 +31,7 @@ const CategorySection = () => {
               <Card 
                 key={category.name} 
                 className="product-card cursor-pointer hover:shadow-md group"
+                onClick={() => handleCategoryClick(category.name)}
               >
                 <CardContent className="p-4 text-center">
                   <div className="mb-3 flex justify-center">

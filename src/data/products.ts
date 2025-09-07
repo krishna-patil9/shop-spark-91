@@ -87,6 +87,164 @@ export const sampleProducts = [
     rating: 4.5,
     reviews: 234,
     category: "Electronics"
+  },
+  // Fashion Category
+  {
+    id: 9,
+    name: "Nike Air Max 270",
+    price: 12999,
+    originalPrice: 14999,
+    image: phone1, // Using placeholder image
+    rating: 4.3,
+    reviews: 567,
+    category: "Fashion",
+    badge: "Popular"
+  },
+  {
+    id: 10,
+    name: "Levi's Classic Jeans",
+    price: 3999,
+    originalPrice: 4999,
+    image: headphones1, // Using placeholder image
+    rating: 4.4,
+    reviews: 890,
+    category: "Fashion"
+  },
+  {
+    id: 11,
+    name: "Adidas Hoodie",
+    price: 2999,
+    originalPrice: 3999,
+    image: watch1, // Using placeholder image
+    rating: 4.2,
+    reviews: 456,
+    category: "Fashion"
+  },
+  // Home & Kitchen Category
+  {
+    id: 12,
+    name: "Instant Pot Duo 7-in-1",
+    price: 8999,
+    originalPrice: 10999,
+    image: laptop1, // Using placeholder image
+    rating: 4.6,
+    reviews: 1200,
+    category: "Home",
+    badge: "Bestseller"
+  },
+  {
+    id: 13,
+    name: "KitchenAid Stand Mixer",
+    price: 15999,
+    originalPrice: 18999,
+    image: phone1, // Using placeholder image
+    rating: 4.8,
+    reviews: 789,
+    category: "Home"
+  },
+  {
+    id: 14,
+    name: "Dyson V11 Vacuum Cleaner",
+    price: 45999,
+    originalPrice: 49999,
+    image: headphones1, // Using placeholder image
+    rating: 4.7,
+    reviews: 654,
+    category: "Home"
+  },
+  // Sports Category
+  {
+    id: 15,
+    name: "Yoga Mat Premium",
+    price: 2499,
+    originalPrice: 2999,
+    image: watch1, // Using placeholder image
+    rating: 4.4,
+    reviews: 345,
+    category: "Sports"
+  },
+  {
+    id: 16,
+    name: "Dumbbells Set 20kg",
+    price: 4999,
+    originalPrice: 5999,
+    image: laptop1, // Using placeholder image
+    rating: 4.5,
+    reviews: 567,
+    category: "Sports"
+  },
+  {
+    id: 17,
+    name: "Football Nike Official",
+    price: 1999,
+    originalPrice: 2499,
+    image: phone1, // Using placeholder image
+    rating: 4.3,
+    reviews: 234,
+    category: "Sports"
+  },
+  // Books Category
+  {
+    id: 18,
+    name: "The Psychology of Money",
+    price: 399,
+    originalPrice: 499,
+    image: headphones1, // Using placeholder image
+    rating: 4.7,
+    reviews: 1100,
+    category: "Books",
+    badge: "Bestseller"
+  },
+  {
+    id: 19,
+    name: "Atomic Habits",
+    price: 349,
+    originalPrice: 449,
+    image: watch1, // Using placeholder image
+    rating: 4.8,
+    reviews: 2300,
+    category: "Books"
+  },
+  {
+    id: 20,
+    name: "Rich Dad Poor Dad",
+    price: 299,
+    originalPrice: 399,
+    image: laptop1, // Using placeholder image
+    rating: 4.6,
+    reviews: 1800,
+    category: "Books"
+  },
+  // Beauty Category
+  {
+    id: 21,
+    name: "Lakme Lipstick Set",
+    price: 1299,
+    originalPrice: 1599,
+    image: phone1, // Using placeholder image
+    rating: 4.2,
+    reviews: 456,
+    category: "Beauty"
+  },
+  {
+    id: 22,
+    name: "L'Oreal Face Cream",
+    price: 899,
+    originalPrice: 1199,
+    image: headphones1, // Using placeholder image
+    rating: 4.4,
+    reviews: 678,
+    category: "Beauty"
+  },
+  {
+    id: 23,
+    name: "Maybelline Mascara",
+    price: 599,
+    originalPrice: 799,
+    image: watch1, // Using placeholder image
+    rating: 4.3,
+    reviews: 543,
+    category: "Beauty"
   }
 ];
 

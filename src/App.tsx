@@ -10,6 +10,7 @@ import BottomNavigation from "@/components/BottomNavigation";
 import Index from "./pages/Index";
 import ProductDetail from "./pages/ProductDetail";
 import CategoryPage from "./pages/CategoryPage";
+import LocationPage from "./pages/LocationPage";
 import Auth from "./pages/Auth";
 import NotFound from "./pages/NotFound";
 
@@ -30,6 +31,7 @@ const App = () => (
                   <Route path="/" element={<Index />} />
                   <Route path="/product/:id" element={<ProductDetail />} />
                   <Route path="/category/:category" element={<CategoryPage />} />
+                  <Route path="/location" element={<LocationPage />} />
                   <Route path="/auth" element={<Auth />} />
                   {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                   <Route path="*" element={<NotFound />} />

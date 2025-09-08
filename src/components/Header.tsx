@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useProducts } from '@/hooks/useProducts';
 import SearchResults from "./SearchResults";
 import Cart from "./Cart";
-import UserLocationMap from "./UserLocationMap";
+import LocationSelector from "./LocationSelector";
 import { useRef, useEffect, useState } from "react";
 
 const Header = () => {
@@ -66,8 +66,11 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Action buttons */}
-          <div className="flex items-center space-x-2">
+          {/* Location and Action buttons */}
+          <div className="flex items-center space-x-3">
+            <div className="hidden sm:block">
+              <LocationSelector />
+            </div>
             {user ? (
               <div className="flex items-center gap-2">
                 <span className="text-sm text-muted-foreground hidden sm:inline">
@@ -122,9 +125,9 @@ const Header = () => {
           </div>
         </div>
 
-        {/* User Location Map */}
-        <div className="py-4">
-          <UserLocationMap />
+        {/* Mobile Location Selector */}
+        <div className="pb-3 sm:hidden">
+          <LocationSelector />
         </div>
 
         {/* Categories Navigation */}

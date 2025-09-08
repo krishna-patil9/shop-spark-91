@@ -29,7 +29,7 @@ const Index = () => {
   }
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-background via-background/98 to-primary/5">
       {/* Hero Carousel */}
       <section className="container mx-auto px-4 py-6">
         <HeroCarousel />
@@ -39,7 +39,7 @@ const Index = () => {
       <CategorySection />
 
       {/* Trending Products */}
-      <section className="py-8 bg-secondary/30">
+      <section className="py-8 bg-gradient-to-r from-secondary/30 via-transparent to-accent/10">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
@@ -60,7 +60,7 @@ const Index = () => {
       </section>
 
       {/* Deal Products */}
-      <section className="py-8">
+      <section className="py-8 bg-gradient-to-l from-accent/5 via-transparent to-primary/10">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2">
@@ -84,7 +84,7 @@ const Index = () => {
       </section>
 
       {/* All Products */}
-      <section className="py-8 bg-secondary/30">
+      <section className="py-8 bg-gradient-to-r from-secondary/30 via-transparent to-background/50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold">All Products</h2>

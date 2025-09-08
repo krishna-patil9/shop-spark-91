@@ -3,6 +3,35 @@ import headphones1 from "@/assets/headphones-1.jpg";
 import watch1 from "@/assets/watch-1.jpg";
 import laptop1 from "@/assets/laptop-1.jpg";
 
+// Fashion images
+import sneakers1 from "@/assets/sneakers-1.jpg";
+import jeans1 from "@/assets/jeans-1.jpg";
+import hoodie1 from "@/assets/hoodie-1.jpg";
+import jacket1 from "@/assets/jacket-1.jpg";
+import dress1 from "@/assets/dress-1.jpg";
+
+// Home & Kitchen images
+import pressureCooker1 from "@/assets/pressure-cooker-1.jpg";
+import mixer1 from "@/assets/mixer-1.jpg";
+import vacuum1 from "@/assets/vacuum-1.jpg";
+import blender1 from "@/assets/blender-1.jpg";
+import skillet1 from "@/assets/skillet-1.jpg";
+
+// Sports images
+import yogaMat1 from "@/assets/yoga-mat-1.jpg";
+import dumbbells1 from "@/assets/dumbbells-1.jpg";
+import football1 from "@/assets/football-1.jpg";
+import resistanceBands1 from "@/assets/resistance-bands-1.jpg";
+import runningShoes1 from "@/assets/running-shoes-1.jpg";
+
+// Books & Beauty images
+import books1 from "@/assets/books-1.jpg";
+import lipstick1 from "@/assets/lipstick-1.jpg";
+import faceCream1 from "@/assets/face-cream-1.jpg";
+import mascara1 from "@/assets/mascara-1.jpg";
+import serum1 from "@/assets/serum-1.jpg";
+import eyeshadow1 from "@/assets/eyeshadow-1.jpg";
+
 export const sampleProducts = [
   // Electronics Category
   {
@@ -70,7 +99,7 @@ export const sampleProducts = [
     name: "Nike Air Max 270 Sneakers",
     price: 12999,
     originalPrice: 14999,
-    image: headphones1,
+    image: sneakers1,
     rating: 4.3,
     reviews: 567,
     category: "Fashion",
@@ -82,7 +111,7 @@ export const sampleProducts = [
     name: "Levi's 501 Original Jeans",
     price: 3999,
     originalPrice: 4999,
-    image: watch1,
+    image: jeans1,
     rating: 4.4,
     reviews: 890,
     category: "Fashion",
@@ -93,7 +122,7 @@ export const sampleProducts = [
     name: "Adidas Essential Hoodie",
     price: 2999,
     originalPrice: 3999,
-    image: laptop1,
+    image: hoodie1,
     rating: 4.2,
     reviews: 456,
     category: "Fashion",
@@ -104,7 +133,7 @@ export const sampleProducts = [
     name: "Zara Leather Jacket",
     price: 8999,
     originalPrice: 10999,
-    image: phone1,
+    image: jacket1,
     rating: 4.5,
     reviews: 234,
     category: "Fashion",
@@ -116,7 +145,7 @@ export const sampleProducts = [
     name: "H&M Summer Dress",
     price: 1999,
     originalPrice: 2499,
-    image: headphones1,
+    image: dress1,
     rating: 4.1,
     reviews: 678,
     category: "Fashion",
@@ -128,7 +157,7 @@ export const sampleProducts = [
     name: "Instant Pot Duo 7-in-1 Pressure Cooker",
     price: 8999,
     originalPrice: 10999,
-    image: watch1,
+    image: pressureCooker1,
     rating: 4.6,
     reviews: 1200,
     category: "Home & Kitchen",
@@ -140,7 +169,7 @@ export const sampleProducts = [
     name: "KitchenAid Artisan Stand Mixer",
     price: 15999,
     originalPrice: 18999,
-    image: laptop1,
+    image: mixer1,
     rating: 4.8,
     reviews: 789,
     category: "Home & Kitchen",
@@ -151,7 +180,7 @@ export const sampleProducts = [
     name: "Dyson V15 Detect Vacuum",
     price: 45999,
     originalPrice: 49999,
-    image: phone1,
+    image: vacuum1,
     rating: 4.7,
     reviews: 654,
     category: "Home & Kitchen",
@@ -162,7 +191,7 @@ export const sampleProducts = [
     name: "Ninja Professional Blender",
     price: 6999,
     originalPrice: 8999,
-    image: headphones1,
+    image: blender1,
     rating: 4.4,
     reviews: 890,
     category: "Home & Kitchen",
@@ -173,7 +202,7 @@ export const sampleProducts = [
     name: "Lodge Cast Iron Skillet Set",
     price: 4999,
     originalPrice: 5999,
-    image: watch1,
+    image: skillet1,
     rating: 4.6,
     reviews: 567,
     category: "Home & Kitchen",
@@ -185,7 +214,7 @@ export const sampleProducts = [
     name: "Premium Yoga Mat with Strap",
     price: 2499,
     originalPrice: 2999,
-    image: laptop1,
+    image: yogaMat1,
     rating: 4.4,
     reviews: 345,
     category: "Sports",
@@ -196,7 +225,7 @@ export const sampleProducts = [
     name: "Adjustable Dumbbells Set 20kg",
     price: 4999,
     originalPrice: 5999,
-    image: phone1,
+    image: dumbbells1,
     rating: 4.5,
     reviews: 567,
     category: "Sports",
@@ -207,7 +236,7 @@ export const sampleProducts = [
     name: "Nike Official Football",
     price: 1999,
     originalPrice: 2499,
-    image: headphones1,
+    image: football1,
     rating: 4.3,
     reviews: 234,
     category: "Sports",
@@ -218,7 +247,7 @@ export const sampleProducts = [
     name: "Resistance Bands Set",
     price: 1299,
     originalPrice: 1599,
-    image: watch1,
+    image: resistanceBands1,
     rating: 4.2,
     reviews: 456,
     category: "Sports",
@@ -229,7 +258,7 @@ export const sampleProducts = [
     name: "Running Shoes - Adidas UltraBoost",
     price: 15999,
     originalPrice: 17999,
-    image: laptop1,
+    image: runningShoes1,
     rating: 4.7,
     reviews: 1234,
     category: "Sports",
@@ -242,7 +271,7 @@ export const sampleProducts = [
     name: "The Psychology of Money",
     price: 399,
     originalPrice: 499,
-    image: phone1,
+    image: books1,
     rating: 4.7,
     reviews: 1100,
     category: "Books",
@@ -254,7 +283,7 @@ export const sampleProducts = [
     name: "Atomic Habits by James Clear",
     price: 349,
     originalPrice: 449,
-    image: headphones1,
+    image: books1,
     rating: 4.8,
     reviews: 2300,
     category: "Books",
@@ -265,7 +294,7 @@ export const sampleProducts = [
     name: "Rich Dad Poor Dad",
     price: 299,
     originalPrice: 399,
-    image: watch1,
+    image: books1,
     rating: 4.6,
     reviews: 1800,
     category: "Books",
@@ -276,7 +305,7 @@ export const sampleProducts = [
     name: "Think and Grow Rich",
     price: 279,
     originalPrice: 349,
-    image: laptop1,
+    image: books1,
     rating: 4.5,
     reviews: 1567,
     category: "Books",
@@ -287,7 +316,7 @@ export const sampleProducts = [
     name: "The 7 Habits of Highly Effective People",
     price: 399,
     originalPrice: 499,
-    image: phone1,
+    image: books1,
     rating: 4.6,
     reviews: 2100,
     category: "Books",
@@ -299,7 +328,7 @@ export const sampleProducts = [
     name: "Lakme Enrich Lipstick Set",
     price: 1299,
     originalPrice: 1599,
-    image: headphones1,
+    image: lipstick1,
     rating: 4.2,
     reviews: 456,
     category: "Beauty",
@@ -310,7 +339,7 @@ export const sampleProducts = [
     name: "L'Oreal Anti-Aging Face Cream",
     price: 899,
     originalPrice: 1199,
-    image: watch1,
+    image: faceCream1,
     rating: 4.4,
     reviews: 678,
     category: "Beauty",
@@ -321,7 +350,7 @@ export const sampleProducts = [
     name: "Maybelline Lash Sensational Mascara",
     price: 599,
     originalPrice: 799,
-    image: laptop1,
+    image: mascara1,
     rating: 4.3,
     reviews: 543,
     category: "Beauty",
@@ -332,7 +361,7 @@ export const sampleProducts = [
     name: "The Ordinary Niacinamide Serum",
     price: 699,
     originalPrice: 899,
-    image: phone1,
+    image: serum1,
     rating: 4.6,
     reviews: 1234,
     category: "Beauty",
@@ -344,7 +373,7 @@ export const sampleProducts = [
     name: "Urban Decay Eyeshadow Palette",
     price: 2999,
     originalPrice: 3499,
-    image: headphones1,
+    image: eyeshadow1,
     rating: 4.7,
     reviews: 789,
     category: "Beauty",

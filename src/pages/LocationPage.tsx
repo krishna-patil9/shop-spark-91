@@ -63,12 +63,25 @@ const LocationPage: React.FC = () => {
     }
   };
 
-  const handleManualAddressSubmit = () => {
+  const handleLocationSubmit = () => {
     if (manualAddress.trim()) {
-      setAddress(manualAddress.trim());
+      const locationData = {
+        address: manualAddress.trim(),
+        city: extractCityFromAddress(manualAddress.trim())
+      };
+      setAddress(`${locationData.city} - ${locationData.address}`);
       setShowManualInput(false);
-      handleSaveAddress(manualAddress.trim());
+      handleSaveAddress(`${locationData.city} - ${locationData.address}`);
     }
+  };
+
+  const extractCityFromAddress = (address: string) => {
+    // Simple city extraction - in a real app, you'd use geocoding
+    const words = address.split(' ');
+    if (words.length > 2) {
+      return words[words.length - 2] + ', ' + words[words.length - 1];
+    }
+    return address.split(',').pop()?.trim() || 'Unknown Area';
   };
 
   return (
@@ -166,7 +179,7 @@ const LocationPage: React.FC = () => {
                   />
                   <div className="flex gap-2">
                     <Button 
-                      onClick={handleManualAddressSubmit}
+                      onClick={handleLocationSubmit}
                       disabled={!manualAddress.trim()}
                       className="flex-1 bg-gradient-primary hover:opacity-90"
                     >

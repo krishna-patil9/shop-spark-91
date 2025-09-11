@@ -40,7 +40,7 @@ All colors MUST be HSL.
     --input: 220 13% 91%;
     --ring: 210 100% 26%;
 
-    /* E-commerce specific colors */
+/* E-commerce specific colors */
     --success: 142 76% 36%;
     --success-foreground: 0 0% 100%;
     
@@ -57,6 +57,7 @@ All colors MUST be HSL.
     --gradient-accent: linear-gradient(135deg, hsl(25 95% 53%), hsl(25 95% 63%));
     --gradient-hero: linear-gradient(135deg, hsl(210 100% 26%) 0%, hsl(25 95% 53%) 100%);
     --gradient-card: linear-gradient(145deg, hsl(0 0% 100%), hsl(210 40% 98%));
+    --gradient-animated: linear-gradient(-45deg, hsl(25 95% 53%), hsl(210 100% 26%), hsl(271 91% 65%), hsl(25 95% 53%));
 
     /* Shadows for depth */
     --shadow-sm: 0 1px 2px 0 hsl(220 13% 13% / 0.05);
@@ -158,5 +159,77 @@ All colors MUST be HSL.
   /* Carousel slide transitions */
   .carousel-slide {
     @apply transition-transform duration-500 ease-in-out;
+  }
+
+  /* Animated gradient background */
+  .bg-gradient-animated {
+    background: var(--gradient-animated);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+
+  /* Floating animations */
+  .animate-float-1 {
+    animation: float1 6s ease-in-out infinite;
+  }
+
+  .animate-float-2 {
+    animation: float2 8s ease-in-out infinite;
+  }
+
+  .animate-float-3 {
+    animation: float3 7s ease-in-out infinite;
+  }
+
+  /* Animation delays */
+  .animation-delay-2000 {
+    animation-delay: 2s;
+  }
+
+  .animation-delay-4000 {
+    animation-delay: 4s;
+  }
+}
+
+/* Keyframes for animations */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float1 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  33% {
+    transform: translateY(-20px) translateX(10px);
+  }
+  66% {
+    transform: translateY(10px) translateX(-5px);
+  }
+}
+
+@keyframes float2 {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-30px) translateX(15px) rotate(180deg);
+  }
+}
+
+@keyframes float3 {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-25px) scale(1.1);
   }
 }

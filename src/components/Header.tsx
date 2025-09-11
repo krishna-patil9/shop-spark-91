@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, User, Menu, LogOut } from "lucide-react";
+import { Search, ShoppingCart, User, Menu, LogOut, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useAuth } from "@/contexts/AuthContext";
@@ -73,6 +73,12 @@ const Header = () => {
             </div>
             {user ? (
               <div className="flex items-center gap-2">
+                <Link to="/orders">
+                  <Button variant="ghost" size="sm" className="hidden sm:flex">
+                    <Package className="h-4 w-4 mr-2" />
+                    Orders
+                  </Button>
+                </Link>
                 <span className="text-sm text-muted-foreground hidden sm:inline">
                   Welcome back!
                 </span>

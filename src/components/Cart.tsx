@@ -1,11 +1,14 @@
-import { ShoppingCart, Minus, Plus, Trash2, X } from "lucide-react";
+import { ShoppingCart, Minus, Plus, Trash2, X, ShoppingBag } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { useCart } from "@/contexts/CartContext";
+import { useState } from "react";
+import CheckoutModal from "./CheckoutModal";
 
 const Cart = () => {
   const { items, removeFromCart, updateQuantity, clearCart, totalItems, totalPrice } = useCart();
+  const [showCheckout, setShowCheckout] = useState(false);
 
   return (
     <Sheet>
@@ -102,8 +105,13 @@ const Cart = () => {
                 </div>
                 
                 <div className="space-y-2">
-                  <Button className="w-full bg-gradient-primary" size="lg">
-                    Checkout
+                  <Button 
+                    className="w-full bg-gradient-primary" 
+                    size="lg"
+                    onClick={() => setShowCheckout(true)}
+                  >
+                    <ShoppingBag className="h-4 w-4 mr-2" />
+                    Checkout - ₹{totalPrice.toLocaleString()}
                   </Button>
                   <Button
                     variant="outline"
@@ -118,6 +126,11 @@ const Cart = () => {
             </>
           )}
         </div>
+        
+        <CheckoutModal 
+          isOpen={showCheckout} 
+          onClose={() => setShowCheckout(false)} 
+        />
       </SheetContent>
     </Sheet>
   );

@@ -259,12 +259,9 @@ const ProductDetail = () => {
       )}
 
       {/* Checkout Modal */}
-      <CheckoutModal
-        isOpen={showCheckout}
+      <CheckoutModal 
+        isOpen={showCheckout} 
         onClose={() => setShowCheckout(false)}
-        product={product}
-        quantity={quantity}
-        onPurchaseComplete={handlePurchaseComplete}
       />
     </div>
   );
